@@ -1,0 +1,18 @@
+Project - Extended Kalman Filter 
+
+STEP1: Tools.cpp
+* RMSE vector is first initiated
+* estimation size is not equal to zero and is equal to ground truth is checked
+* RMSE is calculated 
+* Hj jacobian matrix is calculated by position vector x_state in x-y plane
+
+STEP2: FusionEKF.cpp
+* H_laser  and H_radar matrices are initiated 
+* Covariance matrix P_, state transition matrix F_ and state x_ is initiated
+* Later For Prediction: state matrix F_ and noise Q matrix is updated
+* For Update step: radar and laser matrices are updated by calling Update() function
+
+STEP3: Kalman_Filter.cpp
+* Equations for prediction: x' = Fx and P' = F*P*Ft + Q is called
+* For First Laser Update Kalman filter equations are applied
+* For Second Radar Update Extended Kalman Filter is applied where h'(x) = z_pred is used instead of h*x to converst into linear form
